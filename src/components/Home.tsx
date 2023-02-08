@@ -22,7 +22,7 @@ export function Home() {
           <div className={styles.completedTasksCounter}>0</div>
         </div>
 
-        <div className={styles.emptyContainer}>
+        <div className={styles.emptyTasksContainer}>
           <ListBullets size={70} />
           <p>Você ainda não tem tarefas cadastradas</p>
           <span>Crie tarefas e organize seus itens a fazer</span>
