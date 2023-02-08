@@ -1,6 +1,8 @@
 import styles from "./Home.module.css";
 
-import { ListBullets, PlusCircle } from "phosphor-react";
+import { PlusCircle } from "phosphor-react";
+import { EmptyTask } from "./EmptyTask";
+import { Tasks } from "./Tasks";
 
 export function Home() {
   return (
@@ -13,7 +15,6 @@ export function Home() {
       </div>
 
       <div className={styles.taskContainer}>
-
         <div className={styles.infoContainer}>
           <div className={styles.createdTasks}>Tarefas criadas</div>
           <div className={styles.createdTasksCounter}>0</div>
@@ -21,14 +22,11 @@ export function Home() {
           <div className={styles.completedTasks}>Concluídas</div>
           <div className={styles.completedTasksCounter}>0</div>
         </div>
-
-        <div className={styles.emptyTasksContainer}>
-          <ListBullets size={70} />
-          <p>Você ainda não tem tarefas cadastradas</p>
-          <span>Crie tarefas e organize seus itens a fazer</span>
-        </div>
+        {/*<EmptyTask />*/}
+        <Tasks />
+        <Tasks />
+        <Tasks />
       </div>
-
     </div>
   );
 }

@@ -1,0 +1,35 @@
+.taskContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+  border: 1px solid #333333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+
+  width: 46rem;
+  height: 4.5rem;
+
+  background: var(--gray-500);
+
+  //border: 1px solid red;
+}
+
+.taskContainer p {
+  width: 632px;
+  height: 40px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 140%;
+
+  color: var(--gray-100);
+}
+
+.taskCheckbox {
+  width: 20px;
+  height: 20px;
+}
