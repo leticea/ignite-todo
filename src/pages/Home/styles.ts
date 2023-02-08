@@ -81,13 +81,20 @@ export const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  p {
+  .createdTasks {
     color: ${(props) => props.theme.blue};
   }
 
-  span {
-    color: ${(props) => props.theme.purple};
+  .createdTasksCounter {
+    color: ${(props) => props.theme["gray-200"]};
+  }
 
+  .completedTasks {
+    color: ${(props) => props.theme.purple};
+  }
+
+  .completedTasksCounter {
+    color: ${(props) => props.theme["gray-200"]};
   }
 
   //border: 1px solid red;

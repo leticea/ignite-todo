@@ -22,8 +22,11 @@ export function Home() {
 
       <TaskContainer>
         <InfoContainer>
-          <p>Tarefas criadas</p>
-          <span>Concluídas</span>
+          <div className="createdTasks">Tarefas criadas</div>
+          <div className="createdTasksCounter">0</div>
+
+          <div className="completedTasks">Concluídas</div>
+          <div className="completedTasksCounter">0</div>
         </InfoContainer>
 
         <EmptyContainer>
@@ -31,9 +34,7 @@ export function Home() {
           <p>Você ainda não tem tarefas cadastradas</p>
           <span>Crie tarefas e organize seus itens a fazer</span>
         </EmptyContainer>
-
       </TaskContainer>
     </HomeContainer>
   );
 }
-
