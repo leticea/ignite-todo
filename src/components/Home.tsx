@@ -13,7 +13,7 @@ export function Home() {
       </div>
 
       <div className={styles.taskContainer}>
-        
+
         <div className={styles.infoContainer}>
           <div className={styles.createdTasks}>Tarefas criadas</div>
           <div className={styles.createdTasksCounter}>0</div>
