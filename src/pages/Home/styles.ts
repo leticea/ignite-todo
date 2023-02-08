@@ -75,7 +75,7 @@ export const TaskContainer = styled.div`
 `;
 
 export const InfoContainer = styled.div`
-  font-size: 14px;
+  font-size: 19px;
   font-weight: bold;
   width: 100%;
   display: flex;
@@ -87,6 +87,15 @@ export const InfoContainer = styled.div`
 
   .createdTasksCounter {
     color: ${(props) => props.theme["gray-200"]};
+    background: ${(props) => props.theme["gray-400"]};
+    padding: 2px 12px;
+    width: 2.3rem;
+    height: 1.69rem;
+    border-radius: 62.43rem;
+    display: flex;
+    justify-content: center;
+
+    //border: 1px solid red;
   }
 
   .completedTasks {
@@ -95,6 +104,13 @@ export const InfoContainer = styled.div`
 
   .completedTasksCounter {
     color: ${(props) => props.theme["gray-200"]};
+    background: ${(props) => props.theme["gray-400"]};
+    padding: 2px 12px;
+    width: 2.3rem;
+    height: 1.69rem;
+    border-radius: 62.43rem;
+    display: flex;
+    justify-content: center;
   }
 
   //border: 1px solid red;
