@@ -1,17 +1,14 @@
-import { ThemeProvider } from "styled-components";
-import { BrowserRouter } from "react-router-dom";
-import { Router } from "./Router";
+import { Header } from "./components/Header";
+import { Home } from "./components/Home";
+import "./global.css";
 
-import { GlobalStyle } from "./styles/global";
-import { defaultTheme } from "./styles/themes/default";
 
 export function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-      <GlobalStyle />
-    </ThemeProvider>
+    <div>
+      <Header />
+      <Home />
+    </div>
+
   );
 }

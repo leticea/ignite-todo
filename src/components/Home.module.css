@@ -1,0 +1,147 @@
+.container {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  //border: 1px solid red;
+}
+
+.searchContainer {
+  margin-top: -1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+input {
+  background: var(--gray-500);
+  color: var(--gray-300);
+  width: 39.875rem;
+  height: 3.375rem;
+  border-radius: 8px;
+  padding-left: 1rem;
+  border: 1px solid var(--gray-700);
+}
+
+input::placeholder {
+  color: var(--gray-300);
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--gray-400);
+}
+
+button {
+  width: 5.625rem;
+  height: 3.25rem;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--blue-dark);
+
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: 0;
+}
+
+.taskContainer {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+
+  justify-content: center;
+  width: 736px;
+  height: 287px;
+  top: 291px;
+
+  position: absolute;
+  flex-direction: column;
+
+
+  //border: 1px solid red;
+}
+
+
+.infoContainer {
+  font-size: 0.875rem;
+  font-weight: bold;
+  width: 100%;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+
+  //border: 1px solid red;
+}
+
+.createdTasks {
+  color: var(--blue);
+}
+
+
+.createdTasksCounter {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 2px 8px;
+  width: 1.56rem;
+  height: 1.20rem;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+
+  margin-right: 480px;
+}
+
+.completedTasks {
+  color: var(--purple);
+}
+
+.completedTasksCounter {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 2px 8px;
+  width: 1.56rem;
+  height: 1.20rem;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+}
+
+.emptyContainer {
+  width: 100%;
+  height: 100%;
+
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  flex-direction: column;
+
+
+  //border: 1px solid red;
+}
+
+.emptyContainer p {
+  color: var(--gray-300);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.emptyContainer span {
+  color: var(--gray-300);
+}
