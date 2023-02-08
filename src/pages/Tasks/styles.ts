@@ -90,7 +90,7 @@ export const InfoContainer = styled.div`
     background: ${(props) => props.theme["gray-400"]};
     padding: 2px 8px;
     width: 1.56rem;
-    height: 1.20rem;
+    height: 1.2rem;
     border-radius: 999px;
     display: flex;
     justify-content: center;
@@ -109,39 +109,46 @@ export const InfoContainer = styled.div`
     background: ${(props) => props.theme["gray-400"]};
     padding: 2px 8px;
     width: 1.56rem;
-    height: 1.20rem;
+    height: 1.2rem;
     border-radius: 999px;
     display: flex;
     justify-content: center;
   }
 
   //border: 1px solid red;
-
 `;
 
 export const ListContainer = styled.div`
-  width: 100%;
-  height: 15.25rem;
+  width: 46rem;
+  height: 4.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 14px;
 
   margin-top: 2.6rem;
 
-  border-top: 1px solid ${(props) => props.theme["gray-400"]};
-  border-radius: 8px;
+  //border-top: 1px solid ${(props) => props.theme["gray-400"]};
+  //border-radius: 8px;
 
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
+  align-items: flex-start;
   position: absolute;
 
-  p {
-    color: ${(props) => props.theme["gray-300"]};
-    font-weight: bold;
-    margin-top: 10px;
+  border: 1px solid red;
+
+  .task {
+    color: ${(props) => props.theme["gray-100"]};
   }
 
-  span {
+  button {
+    background: transparent;
     color: ${(props) => props.theme["gray-300"]};
+    border: 0;
+    cursor: pointer;
+    border-radius: 2px;
+
+    Width: 0.78rem;
+    Height: 0.875rem;
   }
 `;

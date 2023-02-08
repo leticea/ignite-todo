@@ -1,4 +1,4 @@
-import { PlusCircle } from "phosphor-react";
+import { PlusCircle, Trash } from "phosphor-react";
 import {
   CreateTaskButton,
   ListContainer,
@@ -30,7 +30,14 @@ export function Tasks() {
         </InfoContainer>
 
         <ListContainer>
-
+          <div className="task">
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humour.
+          </div>
+          <button title="Deletar comentário">
+            <Trash size={20} />
+          </button>
         </ListContainer>
       </TaskContainer>
     </HomeContainer>
