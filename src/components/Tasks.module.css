@@ -20,12 +20,9 @@
 .taskContainer p {
   width: 632px;
   height: 40px;
-
   font-style: normal;
-  font-weight: 400;
   font-size: 0.8rem;
   line-height: 140%;
-
   color: var(--gray-100);
 }
 
@@ -38,4 +35,19 @@
   outline: none;
   cursor: pointer;
   clip-path: circle(40%);
+}
+
+.taskContainer button {
+  display: flex;
+  align-items: flex-start;
+  background: transparent;
+  color: var(--gray-300);
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0),0 0 0 0 rgba(0,0,0,0) !important;
+}
+
+.taskContainer button:hover {
+  color: var(--gray-200);
 }

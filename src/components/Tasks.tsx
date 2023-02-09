@@ -10,7 +10,9 @@ export function Tasks() {
         Integer urna interdum massa libero auctor neque turpis turpis semper.
         Duis vel sed fames integer.
       </p>
-      <Trash size={24} color="#808080" />
+      <button title="Deletar comentário">
+        <Trash size={20}  />
+      </button>
     </div>
   );
 }
