@@ -1,8 +1,10 @@
-import styles from "./Home.module.css";
+import { useState } from "react";
 
 import { PlusCircle } from "phosphor-react";
 import { EmptyTask } from "./EmptyTask";
 import { Task } from "./Task";
+
+import styles from "./Home.module.css";
 
 const tasks = [
   {
