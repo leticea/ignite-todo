@@ -1,14 +1,18 @@
 import { Trash } from "phosphor-react";
 
-import styles from "./Tasks.module.css";
+import styles from "./Task.module.css";
 
-export function Tasks() {
+interface TaskProps {
+  description: string;
+  done: boolean;
+}
+
+export function Task({ done, description }: TaskProps) {
   return (
     <div className={styles.taskContainer}>
       <input className={styles.taskCheckbox} type="checkbox" />
       <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+        {description}
       </p>
       <button title="Deletar comentário">
         <Trash size={20}  />
