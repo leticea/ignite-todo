@@ -58,7 +58,11 @@ export function Home() {
   }
 
   function removeTask(id: number) {
-    
+    const tasksWithoutDeletedOne = tasks.filter(task => {
+      return task.id !== id
+    })
+
+    setTasks(tasksWithoutDeletedOne);
   }
 
   return (
