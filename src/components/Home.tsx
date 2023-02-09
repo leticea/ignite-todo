@@ -57,6 +57,10 @@ export function Home() {
     setNewTask(event.target.value);
   }
 
+  function removeTask(id: number) {
+    
+  }
+
   return (
     <div className={styles.container}>
       <form className={styles.searchContainer} onSubmit={handleCreateNewTask}>
@@ -86,11 +90,8 @@ export function Home() {
           return (
             <Task
               key={task.id}
-              description={task.description}
-              done={task.done}
-              removeTask={() => (id: number): void => {
-                throw new Error("Function not implemented.");
-              }}
+              task={task}
+              removeTask={removeTask}
             />
           );
         })}

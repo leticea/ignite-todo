@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Trash } from "phosphor-react";
 import styles from "./Task.module.css";
 import { TasksProps } from "./Home";
@@ -8,10 +10,10 @@ interface TaskProps {
 }
 
 export function Task({ task, removeTask }: TaskProps) {
+  const [ done, setDone ] = useState(task.done);
 
   function handleRemoveTask(id: number) {
     removeTask(id);
-    console.log("deu")
   }
 
   return (
@@ -21,9 +23,9 @@ export function Task({ task, removeTask }: TaskProps) {
         type="checkbox"
         defaultChecked={done}
       />
-      <p>{description}</p>
-      <button title="Deletar comentário" >
-        <Trash size={20} onClick={handleRemoveTask(id)} />
+      <p>{task.description}</p>
+      <button title="Deletar comentário">
+        <Trash size={20} onClick={() => handleRemoveTask(task.id)} />
       </button>
     </div>
   );
