@@ -1,6 +1,4 @@
 import { Trash } from "phosphor-react";
-import { useState } from "react";
-
 import styles from "./Task.module.css";
 
 interface TaskProps {
@@ -10,12 +8,9 @@ interface TaskProps {
 
 export function Task({ done, description }: TaskProps) {
 
-  const [tasks, setTasks] = useState("");
-
-
   return (
     <div className={styles.taskContainer}>
-      <input className={styles.taskCheckbox} type="checkbox" />
+      <input value={id} className={styles.taskCheckbox} type="checkbox" checked={done} />
       <p>
         {description}
       </p>
