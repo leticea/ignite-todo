@@ -35,16 +35,19 @@ export function Home() {
 
   const [newTask, setNewTask] = useState("");
 
-  function createNewTask(event: FormEvent) {
+  function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
     const lastId = tasks[tasks.length - 1].id;
 
-    const newTasks = [...tasks, {
-      id: lastId + 1,
-      description: newTask,
-      done: false,
-     }];
+    const newTasks = [
+      ...tasks,
+      {
+        id: lastId + 1,
+        description: newTask,
+        done: false,
+      },
+    ];
 
     setTasks(newTasks);
     setNewTask("");
@@ -56,7 +59,7 @@ export function Home() {
 
   return (
     <div className={styles.container}>
-      <form className={styles.searchContainer} onSubmit={createNewTask}>
+      <form className={styles.searchContainer} onSubmit={handleCreateNewTask}>
         <input
           type="text"
           placeholder="Adicione uma tarefa"
@@ -78,12 +81,16 @@ export function Home() {
           <div className={styles.completedTasksCounter}>0</div>
         </div>
         {/*<EmptyTask />*/}
+
         {tasks.map((task) => {
           return (
             <Task
               key={task.id}
               description={task.description}
               done={task.done}
+              removeTask={function (id: number): void {
+                throw new Error("Function not implemented.");
+              }}
             />
           );
         })}
