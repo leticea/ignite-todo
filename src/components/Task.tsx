@@ -1,16 +1,17 @@
 import { Trash } from "phosphor-react";
 import styles from "./Task.module.css";
+import { TasksProps } from "./Home";
 
 interface TaskProps {
-  description: string;
-  done: boolean;
+  task: TasksProps;
   removeTask: (id: number) => void;
 }
 
-export function Task({ done, description, removeTask }: TaskProps) {
+export function Task({ task, removeTask }: TaskProps) {
 
   function handleRemoveTask(id: number) {
     removeTask(id);
+    console.log("deu")
   }
 
   return (
@@ -21,8 +22,8 @@ export function Task({ done, description, removeTask }: TaskProps) {
         defaultChecked={done}
       />
       <p>{description}</p>
-      <button title="Deletar comentário" onClick={handleRemoveTask}>
-        <Trash size={20}  />
+      <button title="Deletar comentário" >
+        <Trash size={20} onClick={handleRemoveTask(id)} />
       </button>
     </div>
   );

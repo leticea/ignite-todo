@@ -6,7 +6,7 @@ import { Task } from "./Task";
 
 import styles from "./Home.module.css";
 
-interface TaskProps {
+export interface TasksProps {
   description: string;
   done: boolean;
   id: number;
@@ -31,7 +31,7 @@ const tasksDB = [
 ];
 
 export function Home() {
-  const [tasks, setTasks] = useState<TaskProps[]>(tasksDB);
+  const [tasks, setTasks] = useState<TasksProps[]>(tasksDB);
 
   const [newTask, setNewTask] = useState("");
 
@@ -88,7 +88,7 @@ export function Home() {
               key={task.id}
               description={task.description}
               done={task.done}
-              removeTask={function (id: number): void {
+              removeTask={() => (id: number): void => {
                 throw new Error("Function not implemented.");
               }}
             />
