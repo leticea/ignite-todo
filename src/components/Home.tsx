@@ -35,8 +35,6 @@ export function Home() {
 
   const [newTask, setNewTask] = useState("");
 
-
-
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
@@ -53,11 +51,10 @@ export function Home() {
 
     setTasks(newTasks);
     setNewTask("");
-  }
 
-  useEffect(() => {
-    localStorage.setItem("newTask", JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+
+  }
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -82,6 +79,10 @@ export function Home() {
 
     setTasks(undeletedTasks);
   }
+
+  useEffect(() => {
+
+  }, [newTask]);
 
   return (
     <div className={styles.container}>
