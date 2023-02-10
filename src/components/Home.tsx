@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { PlusCircle } from "phosphor-react";
 import { EmptyTask } from "./EmptyTask";
@@ -55,12 +55,19 @@ export function Home() {
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
+
+    const newTasks = tasks.filter((task) => task.description.includes(newTask));
+
+    if (newTask != "") {
+      console.log(1);
+      setTasks(newTasks);
+      return;
+    }
+
+    console.log(2);
+
+    setTasks(newTasks);
   }
-
-  useEffect(() => {
-    setTasks(tasks.filter(task => task.includes(tasks)))
-  }, [tasks]);
-
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
