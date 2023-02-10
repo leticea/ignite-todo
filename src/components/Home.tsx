@@ -68,7 +68,6 @@ export function Home() {
     }
 
     console.log(2);
-
     setTasks(tasks);
   }
 
@@ -81,8 +80,7 @@ export function Home() {
   }
 
   useEffect(() => {
-
-  }, [newTask]);
+  }, [tasks]);
 
   return (
     <div className={styles.container}>
