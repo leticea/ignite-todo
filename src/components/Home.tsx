@@ -56,7 +56,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    const tasks = JSON.parse(localStorage.getItem("tasks") || "{}");
     if (tasks) {
      setTasks(tasks);
     }
