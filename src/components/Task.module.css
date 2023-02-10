@@ -24,6 +24,7 @@
   font-size: 0.8rem;
   line-height: 140%;
   color: var(--gray-100);
+  text-decoration: line-through;
 }
 
 .taskCheckbox {
@@ -36,6 +37,7 @@
   cursor: pointer;
   clip-path: circle(40%);
 }
+
 
 .taskContainer button {
   display: flex;

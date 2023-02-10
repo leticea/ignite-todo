@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import { PlusCircle } from "phosphor-react";
 import { EmptyTask } from "./EmptyTask";
@@ -7,9 +7,9 @@ import { Task } from "./Task";
 import styles from "./Home.module.css";
 
 export interface TasksProps {
+  id: number;
   description: string;
   done: boolean;
-  id: number;
 }
 
 const tasksDB = [
@@ -57,12 +57,17 @@ export function Home() {
     setNewTask(event.target.value);
   }
 
-  function removeTask(id: number) {
-    const tasksWithoutDeletedOne = tasks.filter(task => {
-      return task.id !== id
-    })
+  useEffect(() => {
+    setTasks(tasks.filter(task => task.includes(tasks)))
+  }, [tasks]);
 
-    setTasks(tasksWithoutDeletedOne);
+
+  function removeTask(id: number) {
+    const undeletedTasks = tasks.filter((task) => {
+      return task.id !== id;
+    });
+
+    setTasks(undeletedTasks);
   }
 
   return (
@@ -71,7 +76,7 @@ export function Home() {
         <input
           type="text"
           placeholder="Adicione uma tarefa"
-          name="taskInput"
+          name="searchTask"
           value={newTask}
           onChange={updateNewTaskValue}
         />
@@ -91,13 +96,7 @@ export function Home() {
         {/*<EmptyTask />*/}
 
         {tasks.map((task) => {
-          return (
-            <Task
-              key={task.id}
-              task={task}
-              removeTask={removeTask}
-            />
-          );
+          return <Task key={task.id} task={task} removeTask={removeTask} />;
         })}
       </div>
     </div>
