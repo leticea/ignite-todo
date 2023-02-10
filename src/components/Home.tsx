@@ -65,16 +65,13 @@ export function Home() {
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
 
-    /*const newTasks = tasks.filter((task) => task.description.includes(newTask));
 
-    if (newTask != "") {
-      console.log(1);
+    if (newTask !== "") {
+      const newTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask));
       setTasks(newTasks);
       return;
     }
 
-    console.log(2);
-    setTasks(tasks);*/
   }
 
   function removeTask(id: number) {
