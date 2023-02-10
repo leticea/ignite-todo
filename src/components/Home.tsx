@@ -49,17 +49,28 @@ export function Home() {
       },
     ];
 
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+
+
     setTasks(newTasks);
     setNewTask("");
 
-    localStorage.setItem("tasks", JSON.stringify(newTasks));
 
   }
+
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    if (tasks) {
+     setTasks(tasks);
+    }
+  }, []);
+
+
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
 
-    const newTasks = tasks.filter((task) => task.description.includes(newTask));
+    /*const newTasks = tasks.filter((task) => task.description.includes(newTask));
 
     if (newTask != "") {
       console.log(1);
@@ -68,7 +79,7 @@ export function Home() {
     }
 
     console.log(2);
-    setTasks(tasks);
+    setTasks(tasks);*/
   }
 
   function removeTask(id: number) {
@@ -78,9 +89,6 @@ export function Home() {
 
     setTasks(undeletedTasks);
   }
-
-  useEffect(() => {
-  }, [tasks]);
 
   return (
     <div className={styles.container}>
