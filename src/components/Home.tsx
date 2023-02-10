@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import { PlusCircle } from "phosphor-react";
 import { EmptyTask } from "./EmptyTask";
@@ -35,6 +35,8 @@ export function Home() {
 
   const [newTask, setNewTask] = useState("");
 
+
+
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
@@ -53,6 +55,10 @@ export function Home() {
     setNewTask("");
   }
 
+  useEffect(() => {
+    localStorage.setItem("newTask", JSON.stringify(tasks));
+  }, [tasks]);
+
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
 
@@ -66,7 +72,7 @@ export function Home() {
 
     console.log(2);
 
-    setTasks(newTasks);
+    setTasks(tasks);
   }
 
   function removeTask(id: number) {
