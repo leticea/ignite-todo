@@ -33,6 +33,7 @@
   right: 13.64%;
   top: 13.64%;
   bottom: 13.64%;
+  border-radius: 10px;
 }
 
 .taskContainer button {
