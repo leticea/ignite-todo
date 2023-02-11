@@ -1,10 +1,10 @@
 import { useState } from "react";
 
+import * as Checkbox from "@radix-ui/react-checkbox";
 import { Trash, Check } from "phosphor-react";
-import styles from "./Task.module.css";
 import { TasksProps } from "./Home";
 
-import * as Checkbox from "@radix-ui/react-checkbox";
+import styles from "./Task.module.css";
 
 interface TaskProps {
   task: TasksProps;
@@ -20,7 +20,9 @@ export function Task({ task, removeTask }: TaskProps) {
 
   return (
     <div className={styles.taskContainer}>
-      <Checkbox.Root>
+      <Checkbox.Root
+        defaultChecked={done}
+      >
         <div className={styles.taskCheckbox}>
           <Checkbox.Indicator>
             <Check size={20} color="white" />
