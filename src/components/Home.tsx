@@ -87,7 +87,7 @@ export function Home() {
         <input
           type="text"
           placeholder="Adicione uma tarefa"
-          name="searchTask"
+          name="newTask"
           value={newTask}
           onChange={updateNewTaskValue}
         />
