@@ -70,10 +70,8 @@ export function Home() {
   }
 
   useEffect(() => {
-    if (!newTask || "") {
-      tasks.push(tasks)
-    }
-  }, [setTasks])
+    return setTasks(tasks);
+  }, [newTask])
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
