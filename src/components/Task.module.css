@@ -33,11 +33,9 @@
   right: 13.64%;
   top: 13.64%;
   bottom: 13.64%;
-  border-radius: 12px;
+  border-radius: 999px;
   //border: 2px solid var(--blue);
 }
-
-
 
 .taskContainer button {
   display: flex;

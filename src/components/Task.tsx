@@ -29,12 +29,6 @@ export function Task({ task, removeTask }: TaskProps) {
           </Checkbox.Indicator>
         </div>
       </Checkbox.Root>
-
-      {/*<input
-        className={styles.taskCheckbox}
-        type="checkbox"
-        defaultChecked={done}
-      />*/}
       <p>{task.description}</p>
       <button title="Deletar comentário">
         <Trash size={20} onClick={() => handleRemoveTask(task.id)} />

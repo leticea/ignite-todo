@@ -35,6 +35,8 @@ export function Home() {
 
   const [newTask, setNewTask] = useState("");
 
+  const [tasksNumber, setTasksNumber] = useState(tasks.length);
+
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
@@ -63,15 +65,18 @@ export function Home() {
   }, []);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
-    setTasks(filteredTasks)
+
 
     setNewTask(event.target.value);
   }
 
-  useEffect(() => {
-    return setTasks(tasks);
-  }, [newTask])
+  function searchTasks (event: ChangeEvent<HTMLInputElement>) {
+    const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
+    setTasks(filteredTasks)
+
+    setNewTask(event.target.value);
+
+  }
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
@@ -80,6 +85,10 @@ export function Home() {
 
     setTasks(undeletedTasks);
   }
+
+  useEffect(() => {
+    setTasksNumber(tasks.length);
+  }, [tasks]);
 
   return (
     <div className={styles.container}>
@@ -99,7 +108,7 @@ export function Home() {
       <div className={styles.taskContainer}>
         <div className={styles.infoContainer}>
           <div className={styles.createdTasks}>Tarefas criadas</div>
-          <div className={styles.createdTasksCounter}>0</div>
+          <div className={styles.createdTasksCounter}>{tasksNumber}</div>
 
           <div className={styles.completedTasks}>Concluídas</div>
           <div className={styles.completedTasksCounter}>0</div>
