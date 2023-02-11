@@ -12,7 +12,7 @@ export interface TasksProps {
   done: boolean;
 }
 
-const tasksDB = [
+let tasksDB = [
   {
     id: 1,
     description: "Molhar as plantas",
@@ -63,19 +63,17 @@ export function Home() {
   }, []);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    setNewTask(event.target.value);
-
     const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
     setTasks(filteredTasks)
 
-
-
-    /*if (newTask !== "") {
-      const newTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask));
-      setTasks(newTasks);
-      return;
-    }*/
+    setNewTask(event.target.value);
   }
+
+  useEffect(() => {
+    if (!newTask || "") {
+      tasks.push(tasks)
+    }
+  }, [setTasks])
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
