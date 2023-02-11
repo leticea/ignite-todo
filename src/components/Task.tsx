@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-import { Trash } from "phosphor-react";
+import { Trash, Check } from "phosphor-react";
 import styles from "./Task.module.css";
 import { TasksProps } from "./Home";
+
+import * as Checkbox from "@radix-ui/react-checkbox";
 
 interface TaskProps {
   task: TasksProps;
@@ -10,7 +12,7 @@ interface TaskProps {
 }
 
 export function Task({ task, removeTask }: TaskProps) {
-  const [ done, setDone ] = useState(task.done);
+  const [done, setDone] = useState(task.done);
 
   function handleRemoveTask(id: number) {
     removeTask(id);
@@ -18,11 +20,19 @@ export function Task({ task, removeTask }: TaskProps) {
 
   return (
     <div className={styles.taskContainer}>
-      <input
+      <Checkbox.Root>
+        <div className={styles.taskCheckbox}>
+          <Checkbox.Indicator>
+            <Check size={20} color="white" />
+          </Checkbox.Indicator>
+        </div>
+      </Checkbox.Root>
+
+      {/*<input
         className={styles.taskCheckbox}
         type="checkbox"
         defaultChecked={done}
-      />
+      />*/}
       <p>{task.description}</p>
       <button title="Deletar comentário">
         <Trash size={20} onClick={() => handleRemoveTask(task.id)} />
