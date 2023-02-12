@@ -39,7 +39,8 @@ export function Home() {
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-
+    const tasks = getLocalStorage();
+    setTasks(tasks);
     const lastId = tasks[tasks.length - 1].id;
 
     const newTasks = [
@@ -57,12 +58,16 @@ export function Home() {
     localStorage.setItem("tasks", JSON.stringify(newTasks));
   }
 
+  function getLocalStorage() {
+    return JSON.parse(localStorage.getItem("tasks") || "{}");
+  }
+
   useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks") || "{}");
+    const tasks = getLocalStorage();
     if (tasks) {
      setTasks(tasks);
     }
-  }, []);
+  }, [newTask == '']);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
