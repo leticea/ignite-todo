@@ -26,8 +26,6 @@
   color: var(--gray-100);
 }
 
-
-
 .taskContainer button {
   display: flex;
   align-items: flex-start;
@@ -57,6 +55,11 @@
   border: none;
   margin: auto;
   padding: 0.312rem;
+}
+
+.checkbox input:checked + task.description {
+  text-decoration-line: line-through;
+
 }
 
 .checked {
