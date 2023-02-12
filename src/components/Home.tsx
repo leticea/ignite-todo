@@ -37,6 +37,9 @@ export function Home() {
 
   const [tasksNumber, setTasksNumber] = useState(tasks.length);
 
+  const [tasksCompleteNumber, setTasksCompleteNumber] = useState(countTasks());
+
+
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
     //const tasks = getLocalStorage();
@@ -85,6 +88,16 @@ export function Home() {
     setTasks(undeletedTasks);
   }
 
+  function countTasks() {
+    const tasksCompleteCount = tasks.filter(task => task.done);
+    return tasksCompleteCount.length;
+  }
+
+  function handleChangeComplete(id: number) {
+    tasks.map(task => (task.id === id) ? task.done = !task.done : task.done);
+    setTasksCompleteNumber(countTasks());
+  }
+
   useEffect(() => {
     setTasksNumber(tasks.length);
   }, [tasks]);
@@ -110,12 +123,13 @@ export function Home() {
           <div className={styles.createdTasksCounter}>{tasksNumber}</div>
 
           <div className={styles.completedTasks}>Concluídas</div>
-          <div className={styles.completedTasksCounter}>de {tasksNumber}</div>
+          <div className={styles.completedTasksCounter}>{tasksCompleteNumber} de {tasksNumber}</div>
         </div>
         {/*<EmptyTask />*/}
 
         {tasks.map((task) => {
-          return <Task key={task.id} task={task} removeTask={removeTask} />;
+          return <Task key={task.id} task={task} removeTask={removeTask} handleChangeComplete={handleChangeComplete}
+          />;
         })}
       </div>
     </div>

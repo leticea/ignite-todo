@@ -9,26 +9,37 @@ import styles from "./Task.module.css";
 interface TaskProps {
   task: TasksProps;
   removeTask: (id: number) => void;
+  handleChangeComplete: (id: number) => void;
 }
 
-export function Task({ task, removeTask }: TaskProps) {
+export function Task({ task, handleChangeComplete, removeTask }: TaskProps) {
   const [done, setDone] = useState(task.done);
+  const [checked, setChecked] = useState(done);
 
   function handleRemoveTask(id: number) {
     removeTask(id);
   }
 
+  function handleOnChangeDoneCheckbox(id: number) {
+    setChecked(!checked);
+    handleChangeComplete(id);
+  }
+
   return (
     <div className={styles.taskContainer}>
-      <Checkbox.Root
-        defaultChecked={done}
-      >
-        <div className={styles.taskCheckbox}>
-          <Checkbox.Indicator>
-            <Check size={20} color="white" />
-          </Checkbox.Indicator>
-        </div>
-      </Checkbox.Root>
+      <label className={styles.checkbox}>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => handleOnChangeDoneCheckbox(task.id)}
+          id={task.id.toString()}
+          name="tasks"
+          value={task.id}
+        />
+        <span className={styles.checked}>
+          {checked ? <Check size={14} color="#F2F2F2" /> : ""}
+        </span>
+      </label>
       <p>{task.description}</p>
       <button title="Deletar comentário">
         <Trash size={20} onClick={() => handleRemoveTask(task.id)} />

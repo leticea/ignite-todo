@@ -27,15 +27,7 @@
   //text-decoration: line-through;
 }
 
-.taskCheckbox {
-  background: var(--purple);
-  left: 13.64%;
-  right: 13.64%;
-  top: 13.64%;
-  bottom: 13.64%;
-  border-radius: 999px;
-  //border: 2px solid var(--blue);
-}
+
 
 .taskContainer button {
   display: flex;
@@ -46,4 +38,31 @@
   line-height: 0;
   border-radius: 2px;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+}
+
+.checkbox input {
+  display: none;
+
+}
+
+.checkbox span {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0.2rem solid #4EA8DE;
+  border-radius: 50%;
+  display: block;
+}
+
+.checkbox input:checked + span {
+  background: #5E60CE;
+  border: none;
+  margin: auto;
+  padding: 5px;
+}
+
+.checked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
