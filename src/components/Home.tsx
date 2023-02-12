@@ -1,9 +1,9 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
-import { PlusCircle } from "phosphor-react";
 import { EmptyTask } from "./EmptyTask";
 import { Task } from "./Task";
 
+import { PlusCircle } from "phosphor-react";
 import styles from "./Home.module.css";
 
 export interface TasksProps {
@@ -65,8 +65,6 @@ export function Home() {
   }, []);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-
-
     setNewTask(event.target.value);
   }
 
@@ -111,7 +109,7 @@ export function Home() {
           <div className={styles.createdTasksCounter}>{tasksNumber}</div>
 
           <div className={styles.completedTasks}>Concluídas</div>
-          <div className={styles.completedTasksCounter}>0</div>
+          <div className={styles.completedTasksCounter}>de {tasksNumber}</div>
         </div>
         {/*<EmptyTask />*/}
 
