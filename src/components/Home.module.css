@@ -57,20 +57,18 @@ button {
 }
 
 .taskContainer {
-  width: 736px;
-  height: 287px;
+  min-width: 736px;
+  min-height: 287px;
   padding: 0px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: absolute;
   flex-direction: column;
-  margin-top: 0.5rem;
-  top: 291px;
+  top: 228px;
 
   //border: 1px solid red;
 }
-
 
 .infoContainer {
   width: 100%;
@@ -79,8 +77,7 @@ button {
   justify-content: space-between;
   font-size: 0.875rem;
   font-weight: bold;
-
-  margin-bottom: 24px;
+  margin-top: 44px;
 
   //border: 1px solid red;
 }
@@ -88,7 +85,6 @@ button {
 .createdTasks {
   color: var(--blue);
 }
-
 
 .createdTasksCounter {
   width: 2rem;
@@ -99,7 +95,6 @@ button {
   color: var(--gray-200);
   background: var(--gray-400);
   border-radius: 999px;
-
   margin: 0px 430px 5px 0px;
 }
 
@@ -118,6 +113,4 @@ button {
   border-radius: 999px;
 
   margin: 0px 0px 5px 1px;
-
 }
-
