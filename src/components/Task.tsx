@@ -12,7 +12,7 @@ interface TaskProps {
 }
 
 export function Task({ task, handleChangeComplete, removeTask }: TaskProps) {
-  const [done, setDone] = useState(task.done);
+  const [done] = useState(task.done);
   const [checked, setChecked] = useState(done);
 
   function handleRemoveTask(id: number) {
@@ -39,7 +39,7 @@ export function Task({ task, handleChangeComplete, removeTask }: TaskProps) {
           {checked ? <Check size={14} color="#F2F2F2" /> : ""}
         </span>
       </label>
-      <p>{task.description}</p>
+      <p className={checked ? styles.checkedParagraph : ''}>{task.description}</p>
       <button title="Deletar comentário">
         <Trash size={20} onClick={() => handleRemoveTask(task.id)} />
       </button>

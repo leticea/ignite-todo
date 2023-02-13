@@ -39,7 +39,6 @@ export function Home() {
 
   const [tasksCompleteNumber, setTasksCompleteNumber] = useState(countTasks());
 
-
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
 
@@ -58,20 +57,7 @@ export function Home() {
 
     setTasks(newTasks);
     setNewTask("");
-
-    //localStorage.setItem("tasks", JSON.stringify(newTasks));
   }
-
-  // function getLocalStorage() {
-  //   return JSON.parse(localStorage.getItem("tasks") || "{}");
-  // }
-
-  // useEffect(() => {
-  //   const tasks = getLocalStorage();
-  //   if (tasks) {
-  //    setTasks(tasks);
-  //   }
-  // }, [newTask == '']);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))

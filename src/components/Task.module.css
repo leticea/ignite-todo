@@ -13,17 +13,19 @@
   height: 4.5rem;
 
   background: var(--gray-500);
-
-  //border: 1px solid red;
 }
 
 .taskContainer p {
   width: 632px;
   height: 40px;
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 140%;
-  color: var(--gray-100);
+}
+
+.checkedParagraph {
+  color: var(--gray-300);
+  text-decoration-line: line-through;
 }
 
 .taskContainer button {
@@ -42,8 +44,9 @@
 }
 
 .checkbox span {
-  width: 1.5rem;
-  height: 1.5rem;
+  Width: 17.45px;
+  Height: 17.45px;
+
   border: 2.4px solid var(--blue);
   border-radius: 999px;
   display: block;
@@ -54,11 +57,7 @@
   background: var(--purple-dark);
   border: none;
   margin: auto;
-  padding: 0.312rem;
-}
-
-.checkbox input:checked + task.description {
-  text-decoration-line: line-through;
+  padding: 0.1rem;
 }
 
 .checked {
