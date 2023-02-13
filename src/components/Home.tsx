@@ -59,6 +59,12 @@ export function Home() {
     setNewTask("");
   }
 
+  useEffect(() => {
+    if (tasks) {
+     setTasks(tasks);
+    }
+  }, [newTask == '']);
+
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
     const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
     setTasks(filteredTasks)
