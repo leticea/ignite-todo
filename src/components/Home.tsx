@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import uuid from 'react-uuid';
 
 import { EmptyTask } from "./EmptyTask";
 import { Task } from "./Task";
@@ -12,54 +13,58 @@ export interface TasksProps {
   done: boolean;
 }
 
-let tasksDB = [
-  {
-    id: 1,
-    description: "Molhar as plantas",
-    done: true,
-  },
-  {
-    id: 2,
-    description: "Ir ao mercado",
-    done: false,
-  },
-  {
-    id: 3,
-    description: "Fazer exercício",
-    done: false,
-  },
-];
+
 
 export function Home() {
-  const [tasks, setTasks] = useState<TasksProps[]>(tasksDB);
-
+  const [tasksDB, setTasksDB] = useState<TasksProps[]>(getLocalStorage());
+  const [tasks, setTasks] = useState<TasksProps[]>(getLocalStorage());
   const [newTask, setNewTask] = useState("");
 
   const [tasksNumber, setTasksNumber] = useState(tasks.length);
 
   const [tasksCompleteNumber, setTasksCompleteNumber] = useState(countTasks());
 
-
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-    const tasks = getLocalStorage();
-    setTasks(tasks);
+    setTasksDB(getLocalStorage());
 
-    const lastId = tasks[tasks.length - 1].id;
+    if (tasksDB.length > 0) {
 
-    const newTasks = [
-      ...tasks,
-      {
-        id: lastId + 1,
-        description: newTask,
-        done: false,
-      },
-    ];
+      const newTasks = [
+        ...getLocalStorage(),
+        {
+          id: uuid(),
+          description: newTask,
+          done: false,
+        },
+      ];
+      setTasksDB(newTasks);
+      console.log("ggg - ", getLocalStorage())
+      console.log("ggg - ", tasksDB)
+      console.log("ggg - ", newTasks)
+    } else {
+      const newTasks = [
+        {
+          id: uuid(),
+          description: newTask,
+          done: false,
+        },
+      ];
 
-    setTasks(newTasks);
+      console.log("ppp - ", tasksDB)
+      setTasksDB(newTasks);
+    }
+
+
+    setLocalStorage();
     setNewTask("");
+    setTasks(tasksDB);
+    console.log("ttt", tasksDB)
+    console.log("uuu", tasks)
+  }
 
-    localStorage.setItem("tasks", JSON.stringify(newTasks));
+  function setLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(tasksDB));
   }
 
   function getLocalStorage() {
@@ -67,38 +72,50 @@ export function Home() {
   }
 
   useEffect(() => {
-    const tasks = getLocalStorage();
-    if (tasks) {
-     setTasks(tasks);
-    }
+
+    /*const tasksDB = getLocalStorage();
+    if (tasksDB.length > 0) {
+
+     setTasks(tasksDB);
+    }*/
   }, [newTask == '']);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
+    /* if (tasks.length > 0) {
+      const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
     setTasks(filteredTasks)
+     } */
+
 
     setNewTask(event.target.value);
   }
-
-
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
       return task.id !== id;
     });
 
+    //localStorage.removeItem("id");
     setTasks(undeletedTasks);
-    localStorage.removeItem(undeletedTasks)
   }
 
+
+
   function countTasks() {
-    const tasksCompleteCount = tasks.filter(task => task.done);
-    return tasksCompleteCount.length;
+    if (tasksDB.length > 0) {
+      const tasksCompleteCount = tasksDB.filter(task => task.done);
+      return tasksCompleteCount.length;
+    }
+
   }
 
   function handleChangeComplete(id: number) {
-    tasks.map(task => (task.id === id) ? task.done = !task.done : task.done);
-    setTasksCompleteNumber(countTasks());
+
+    if (tasksDB.length > 0) {
+      tasks.map(task => (task.id === id) ? task.done = !task.done : task.done);
+      setTasksCompleteNumber(countTasks());
+    }
+
   }
 
   useEffect(() => {
@@ -129,11 +146,21 @@ export function Home() {
           <div className={styles.completedTasksCounter}>{tasksCompleteNumber} de {tasksNumber}</div>
         </div>
         {/*<EmptyTask />*/}
+        {
+        tasks.length > 0
+          ? tasks.map((task) => {
+              return (
+              <Task
+                key={task.id}
+                task={task}
+                removeTask={removeTask}
+                handleChangeComplete={handleChangeComplete}
+                />
+              )
+            })
+            : []
+          }
 
-        {tasks.map((task) => {
-          return <Task key={task.id} task={task} removeTask={removeTask} handleChangeComplete={handleChangeComplete}
-          />;
-        })}
       </div>
     </div>
   );
