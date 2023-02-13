@@ -59,7 +59,6 @@
 
 .checkbox input:checked + task.description {
   text-decoration-line: line-through;
-
 }
 
 .checked {
