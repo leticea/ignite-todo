@@ -59,18 +59,26 @@ export function Home() {
     setNewTask("");
   }
 
-  useEffect(() => {
-    if (tasks) {
-     setTasks(tasks);
-    }
-  }, [newTask == '']);
+
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    const filteredTasks = tasks.filter((task) => task.description.toLowerCase().includes(newTask))
-    setTasks(filteredTasks)
+    if (newTask != "") {
+      const filteredTasks = tasks.filter((task) =>
+        task.description.toLowerCase().includes(newTask)
+      );
+      setTasks(filteredTasks);
+    } else {
+      setTasks(tasks);
+    }
 
     setNewTask(event.target.value);
   }
+
+  useEffect(() => {
+    if (tasks) {
+      setTasks(tasks);
+    }
+  }, [newTask == ""]);
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
@@ -81,12 +89,14 @@ export function Home() {
   }
 
   function countTasks() {
-    const tasksCompleteCount = tasks.filter(task => task.done);
+    const tasksCompleteCount = tasks.filter((task) => task.done);
     return tasksCompleteCount.length;
   }
 
   function handleChangeComplete(id: number) {
-    tasks.map(task => (task.id === id) ? task.done = !task.done : task.done);
+    tasks.map((task) =>
+      task.id === id ? (task.done = !task.done) : task.done
+    );
     setTasksCompleteNumber(countTasks());
   }
 
@@ -115,13 +125,21 @@ export function Home() {
           <div className={styles.createdTasksCounter}>{tasksNumber}</div>
 
           <div className={styles.completedTasks}>Concluídas</div>
-          <div className={styles.completedTasksCounter}>{tasksCompleteNumber} de {tasksNumber}</div>
+          <div className={styles.completedTasksCounter}>
+            {tasksCompleteNumber} de {tasksNumber}
+          </div>
         </div>
         {/*<EmptyTask />*/}
 
         {tasks.map((task) => {
-          return <Task key={task.id} task={task} removeTask={removeTask} handleChangeComplete={handleChangeComplete}
-          />;
+          return (
+            <Task
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              handleChangeComplete={handleChangeComplete}
+            />
+          );
         })}
       </div>
     </div>
