@@ -66,14 +66,10 @@ export function Home() {
   }, [newTask]);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    if (newTask) {
-      const filteredTasks = tasks.filter((task) =>
-        task.description.toLowerCase().includes(newTask)
-      );
-      setTasks(filteredTasks);
-    } else {
-      setTasks(tasks);
-    }
+    let filteredTasks = tasks.filter((task) =>
+      task.description.toLowerCase().includes(newTask)
+    );
+    setTasks(filteredTasks);
 
     setNewTask(event.target.value);
   }
