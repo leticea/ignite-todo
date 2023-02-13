@@ -34,7 +34,6 @@
   cursor: pointer;
   border-radius: 2px;
   display: flex;
-  align-items: flex-start;
   justify-content: right;
 }
 
