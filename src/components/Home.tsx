@@ -42,8 +42,8 @@ export function Home() {
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
-    //const tasks = getLocalStorage();
-    //setTasks(tasks);
+    const tasks = getLocalStorage();
+    setTasks(tasks);
 
     const lastId = tasks[tasks.length - 1].id;
 
@@ -80,12 +80,15 @@ export function Home() {
     setNewTask(event.target.value);
   }
 
+
+
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
       return task.id !== id;
     });
 
     setTasks(undeletedTasks);
+    localStorage.removeItem(undeletedTasks)
   }
 
   function countTasks() {

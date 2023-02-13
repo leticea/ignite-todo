@@ -12,7 +12,7 @@ interface TaskProps {
 }
 
 export function Task({ task, handleChangeComplete, removeTask }: TaskProps) {
-  const [done, setDone] = useState(task.done);
+  const [done] = useState(task.done);
   const [checked, setChecked] = useState(done);
 
   function handleRemoveTask(id: number) {
