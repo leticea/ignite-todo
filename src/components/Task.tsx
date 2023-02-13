@@ -40,7 +40,7 @@ export function Task({ task, handleChangeComplete, removeTask }: TaskProps) {
         </span>
       </label>
       <p className={checked ? styles.checkedParagraph : ''}>{task.description}</p>
-      <button title="Deletar comentário">
+      <button title="Deletar tarefa">
         <Trash size={20} onClick={() => handleRemoveTask(task.id)} />
       </button>
     </div>
