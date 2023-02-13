@@ -59,17 +59,17 @@ export function Home() {
     setNewTask("");
   }
 
-  useEffect(() => {
-    if (newTask) {
-      setTasks(tasks);
-    }
-  }, [newTask]);
+  // useEffect(() => {
+  //   if (newTask) {
+  //     setTasks(tasks);
+  //   }
+  // }, [newTask]);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    let filteredTasks = tasks.filter((task) =>
-      task.description.toLowerCase().includes(newTask)
-    );
-    setTasks(filteredTasks);
+    // const filteredTasks = tasks.filter((task) =>
+    //   task.description.toLowerCase().includes(newTask)
+    // );
+    // setTasks(filteredTasks);
 
     setNewTask(event.target.value);
   }
