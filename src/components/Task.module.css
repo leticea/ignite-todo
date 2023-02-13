@@ -27,14 +27,15 @@
 }
 
 .taskContainer button {
-  display: flex;
-  align-items: flex-start;
+  width: 20px;
+  height: 22px;
   background: transparent;
   color: var(--gray-300);
   cursor: pointer;
-  line-height: 0;
   border-radius: 2px;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0) !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: right;
 }
 
 .checkbox input {
@@ -57,7 +58,7 @@
   margin: auto;
   padding: 0.1rem;
 
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 }
 
 .checked {
