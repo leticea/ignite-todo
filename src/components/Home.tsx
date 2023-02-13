@@ -59,10 +59,14 @@ export function Home() {
     setNewTask("");
   }
 
-
+  useEffect(() => {
+    if (newTask) {
+      setTasks(tasks);
+    }
+  }, [newTask]);
 
   function updateNewTaskValue(event: ChangeEvent<HTMLInputElement>) {
-    if (newTask != "") {
+    if (newTask) {
       const filteredTasks = tasks.filter((task) =>
         task.description.toLowerCase().includes(newTask)
       );
@@ -73,12 +77,6 @@ export function Home() {
 
     setNewTask(event.target.value);
   }
-
-  useEffect(() => {
-    if (tasks) {
-      setTasks(tasks);
-    }
-  }, [newTask == ""]);
 
   function removeTask(id: number) {
     const undeletedTasks = tasks.filter((task) => {
@@ -129,18 +127,20 @@ export function Home() {
             {tasksCompleteNumber} de {tasksNumber}
           </div>
         </div>
-        {/*<EmptyTask />*/}
-
-        {tasks.map((task) => {
-          return (
-            <Task
-              key={task.id}
-              task={task}
-              removeTask={removeTask}
-              handleChangeComplete={handleChangeComplete}
-            />
-          );
-        })}
+        {tasks.length !== 0 ? (
+          tasks.map((task) => {
+            return (
+              <Task
+                key={task.id}
+                task={task}
+                removeTask={removeTask}
+                handleChangeComplete={handleChangeComplete}
+              />
+            );
+          })
+        ) : (
+          <EmptyTask />
+        )}
       </div>
     </div>
   );
