@@ -7,8 +7,8 @@ export function EmptyTask() {
     <div className={styles.emptyTasksContainer}>
       <div className={styles.emptyTasksInfo}>
         <ListBullets size={70} />
-        <p>Você ainda não tem tarefas cadastradas</p>
-        <span>Crie tarefas e organize seus itens a fazer</span>
+        <p className={styles.firstLine}>Você ainda não tem tarefas cadastradas</p>
+        <p className={styles.secondLine}>Crie tarefas e organize seus itens a fazer</p>
       </div>
     </div>
   );
