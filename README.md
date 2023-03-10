@@ -31,7 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ToDo List desenvolvido com React e TypeScript para a criação e manutenção de tarefas.
 
-Desafio do Ignite na plataforma da [Rocketseat](https://www.rocketseat.com.br/).
+- Desafio do Ignite na plataforma da [Rocketseat](https://www.rocketseat.com.br/).
 
 ## 🚀 Como Rodar
 
