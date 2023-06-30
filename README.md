@@ -15,7 +15,7 @@
   <img alt="" src=".github/image2.png">
 </p>
 
-## Ignite Challenge - ToDo List
+# ToDo List
 
 ## 🚀 Tecnologias
 
@@ -33,7 +33,7 @@ ToDo List desenvolvido com React e TypeScript para a criação e manutenção de
 
 - Desafio do Ignite na plataforma da [Rocketseat](https://www.rocketseat.com.br/).
 
-## 🚀 Como Rodar
+## ⚙️ Como Rodar
 
 - Clone o projeto.
 - Entre na pasta do projeto e rode 'npm install' (use 'yarn install' se for essa a sua configuração).
