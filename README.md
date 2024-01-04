@@ -3,7 +3,7 @@
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-rodar">Como rodar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;
-  </p>
+</p>
 
 <br>
 
@@ -15,17 +15,17 @@
   <img alt="" src=".github/image2.png">
 </p>
 
-# ToDo List
+# To Do List With React
 
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Nodejs](https://nodejs.org/en/) - v18.12.1
 - [Npm](https://www.npmjs.com/) - 8.19.2
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/)
-- [Phosphor Icons](https://phosphoricons.com/)
+- [Vite](https://vitejs.dev/) - 4.1.0
+- [TypeScript](https://www.typescriptlang.org/) - 4.9.3
+- [Phosphor Icons](https://phosphoricons.com/) - 1.4.1
+- [Styled-Components](https://styled-components.com/) - 5.3.6
 
 ## 💻 Projeto
 
